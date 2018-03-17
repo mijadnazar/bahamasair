@@ -41,7 +41,6 @@ class ViewController: UIViewController {
   @IBOutlet var cloud3: UIImageView!
   @IBOutlet var cloud4: UIImageView!
 
-    let test = "Just a Test String"
   
   // MARK: further UI
   
