@@ -71,7 +71,8 @@ class ViewController: UIViewController {
     
     label.frame = CGRect(x: 0.0, y: 0.0, width: status.frame.size.width, height: status.frame.size.height)
     label.font = UIFont(name: "HelveticaNeue", size: 18.0)
-    label.textColor = UIColor(red: 0.89, green: 0.38, blue: 0.0, alpha: 1.0)
+    label.textColor = UIColor(red: 0.89, green: 0.38, blue
+        : 0.0, alpha: 1.0)
     label.textAlignment = .center
     status.addSubview(label)
   }
@@ -87,6 +88,9 @@ class ViewController: UIViewController {
     self.cloud2.alpha = 0
     self.cloud3.alpha = 0
     self.cloud4.alpha = 0
+
+    loginButton.center.y += 30.0
+    loginButton.alpha = 0.0
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -111,6 +115,11 @@ class ViewController: UIViewController {
         self.cloud4.alpha = 1
     }, completion: nil)
 
+    UIView.animate(withDuration: 1.5, delay: 0.2, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: [], animations: {
+        self.loginButton.center.y -= 30
+        self.loginButton.alpha = 1
+    }, completion: nil)
+
 
 
 //    UIView.animate(withDuration: 0.3, delay: 0.4, options: [], animations: {
@@ -122,6 +131,16 @@ class ViewController: UIViewController {
   
   @IBAction func login() {
     view.endEditing(true)
+
+    UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: [], animations: {
+        self.loginButton.bounds.size.width += 80
+    }, completion: nil)
+
+    UIView.animate(withDuration: 0.33, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: [], animations: {
+        self.loginButton.center.y += 60
+        self.loginButton.backgroundColor = UIColor(red: 236/256, green: 242/256, blue: 157/256, alpha: 1.0)
+    }, completion: nil)
+
   }
   
   // MARK: UITextFieldDelegate
