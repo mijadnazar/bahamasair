@@ -101,12 +101,12 @@ class ViewController: UIViewController {
         self.cloud1.alpha = 1
     }
 
-    UIView.animate(withDuration: 0.3, delay: 0.2, options: [], animations: {
+    UIView.animate(withDuration: 1, delay: 0.2, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: [], animations: {
         self.username.center.x += self.view.bounds.width
         self.cloud2.alpha = 1
-    },completion: nil)
+    }, completion: nil)
 
-    UIView.animate(withDuration: 0.3, delay: 0.4, options: [], animations: {
+    UIView.animate(withDuration: 1, delay: 0.4, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: [], animations: {
         self.password.center.x += self.view.bounds.width
         self.cloud3.alpha = 1
     }, completion: nil)
