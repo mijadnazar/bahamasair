@@ -69,10 +69,19 @@
                                 <rect key="frame" x="-121" y="129" width="159" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="purple_flower" id="fzV-s3-68G">
+                                <rect key="frame" x="114" y="413" width="146" height="124"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="blue_flower" id="d4N-zM-IA6">
+                                <rect key="frame" x="114" y="413" width="146" height="124"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="blue_flower" destination="d4N-zM-IA6" id="Ccn-QO-Wqu"/>
                         <outlet property="cloud1" destination="Oqu-co-Y0s" id="XJJ-cu-wjC"/>
                         <outlet property="cloud2" destination="Ptl-Dv-gsb" id="CbK-v8-Qca"/>
                         <outlet property="cloud3" destination="90G-lc-cQA" id="mb6-qT-jlW"/>
@@ -80,12 +89,13 @@
                         <outlet property="heading" destination="mEV-bG-x0j" id="YzL-PZ-tWN"/>
                         <outlet property="loginButton" destination="bit-Al-8Lg" id="AEA-fV-f77"/>
                         <outlet property="password" destination="9gk-hf-wuJ" id="iy7-dA-ck4"/>
+                        <outlet property="purple_flower" destination="fzV-s3-68G" id="glh-xC-dsp"/>
                         <outlet property="username" destination="MAN-Rj-j7W" id="Xtr-1s-0aP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="181.33333333333334" y="366.36000000000001"/>
+            <point key="canvasLocation" x="180.5" y="365.5"/>
         </scene>
     </scenes>
     <resources>
@@ -94,5 +104,7 @@
         <image name="bg-sunny-cloud-2" width="138" height="49"/>
         <image name="bg-sunny-cloud-3" width="74" height="35"/>
         <image name="bg-sunny-cloud-4" width="115" height="50"/>
+        <image name="blue_flower" width="736" height="736"/>
+        <image name="purple_flower" width="736" height="736"/>
     </resources>
 </document>

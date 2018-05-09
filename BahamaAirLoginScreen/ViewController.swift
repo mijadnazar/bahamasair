@@ -41,7 +41,9 @@ class ViewController: UIViewController {
   @IBOutlet var cloud3: UIImageView!
   @IBOutlet var cloud4: UIImageView!
 
-  
+    @IBOutlet weak var blue_flower: UIImageView!
+    @IBOutlet weak var purple_flower: UIImageView!
+
   // MARK: further UI
   
   let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
@@ -132,9 +134,25 @@ class ViewController: UIViewController {
   @IBAction func login() {
     view.endEditing(true)
 
+    UIView.transition(with: self.cloud1, duration: 0.5, options: [.curveEaseOut, .transitionCrossDissolve], animations: {
+        self.cloud3.isHidden = true
+    }, completion: nil)
+
+    UIView.transition(with: self.cloud4, duration: 3, options: [.curveEaseOut, .transitionFlipFromBottom], animations: {
+        self.cloud4.isHidden = true
+    }, completion: nil)
     UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: [], animations: {
         self.loginButton.bounds.size.width += 80
     }, completion: nil)
+
+//    UIView.transition(from: self.purple_flower, to: self.blue_flower, duration: 0.5, options: [.curveEaseOut, .transitionCrossDissolve]) { (_) in
+//        self.blue_flower.isHidden = false
+//    }
+
+    UIView.animate(withDuration: 2) {
+        self.purple_flower.isHidden = true
+        self.blue_flower.isHidden = false
+    }
 
     UIView.animate(withDuration: 0.33, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: [], animations: {
         self.loginButton.center.y += 60
