@@ -139,8 +139,10 @@ class ViewController: UIViewController {
     UIView.animate(withDuration: 0.33, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: [], animations: {
         self.loginButton.center.y += 60
         self.loginButton.backgroundColor = UIColor(red: 236/256, green: 242/256, blue: 157/256, alpha: 1.0)
-    }, completion: nil)
 
+        self.spinner.center = CGPoint(x: 40, y: self.loginButton.frame.size.height / 2)
+        self.spinner.alpha = 1.0
+    }, completion: nil)
   }
   
   // MARK: UITextFieldDelegate
