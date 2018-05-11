@@ -77,6 +77,8 @@ class ViewController: UIViewController {
         : 0.0, alpha: 1.0)
     label.textAlignment = .center
     status.addSubview(label)
+    
+    statusPosition = status.center
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -143,7 +145,10 @@ class ViewController: UIViewController {
     }, completion: nil)
     UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: [], animations: {
         self.loginButton.bounds.size.width += 80
-    }, completion: nil)
+        
+    }, completion: {_ in
+        self.showMessage(index: 0)
+    })
 
 //    UIView.transition(from: self.purple_flower, to: self.blue_flower, duration: 0.5, options: [.curveEaseOut, .transitionCrossDissolve]) { (_) in
 //        self.blue_flower.isHidden = false
@@ -162,6 +167,20 @@ class ViewController: UIViewController {
         self.spinner.alpha = 1.0
     }, completion: nil)
   }
+    
+    
+    func showMessage(index: Int) {
+        label.text = messages[index]
+        UIView.transition(with: status, duration: 0.33, options: [.curveEaseOut, .transitionCurlDown], animations: {
+            self.status.isHidden = false
+        }, completion: {_ in
+            
+        })
+    }
+    
+    func removeMessage(index: Int) {
+        
+    }
   
   // MARK: UITextFieldDelegate
   
