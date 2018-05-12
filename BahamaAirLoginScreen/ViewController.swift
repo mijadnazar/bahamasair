@@ -150,10 +150,6 @@ class ViewController: UIViewController {
         self.showMessage(index: 0)
     })
 
-//    UIView.transition(from: self.purple_flower, to: self.blue_flower, duration: 0.5, options: [.curveEaseOut, .transitionCrossDissolve]) { (_) in
-//        self.blue_flower.isHidden = false
-//    }
-
     UIView.animate(withDuration: 2) {
         self.purple_flower.isHidden = true
         self.blue_flower.isHidden = false
@@ -174,12 +170,44 @@ class ViewController: UIViewController {
         UIView.transition(with: status, duration: 0.33, options: [.curveEaseOut, .transitionCurlDown], animations: {
             self.status.isHidden = false
         }, completion: {_ in
-            
+            delay(1, completion: {
+                if index < self.messages.count - 1 {
+                    self.removeMessage(index: index)
+                }else {
+                    // reset form
+                    self.resetForm()
+                }
+            })
         })
     }
     
     func removeMessage(index: Int) {
-        
+        UIView.animate(withDuration: 0.33, delay: 0.0, options: [], animations: {
+            self.status.center.x += self.view.frame.size.width
+        }) { (completed) in
+            self.status.isHidden = true
+            self.status.center = self.statusPosition
+            self.showMessage(index: index + 1)
+        }
+    }
+
+    func resetForm() {
+        UIView.transition(with: self.status, duration: 0.2, options: [.curveEaseOut, .transitionCurlUp], animations: {
+            self.status.isHidden = true
+        }) { (completed) in
+            if completed {
+                UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.0, options: [], animations: {
+                    self.status.center = self.statusPosition
+
+                    self.loginButton.bounds.size.width -= 80
+                    self.loginButton.center.y -= 60
+                    self.loginButton.backgroundColor = UIColor(red: 160/255, green: 214/255, blue: 90/255, alpha: 1.0)
+
+                    self.spinner.alpha = 0.0
+                }, completion: nil)
+            }
+        }
+
     }
   
   // MARK: UITextFieldDelegate
